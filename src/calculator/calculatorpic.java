@@ -61,10 +61,20 @@ public class calculatorpic extends javax.swing.JFrame {
 
         jbtnCE.setFont(new java.awt.Font("Segoe UI", 1, 36)); // NOI18N
         jbtnCE.setText("CE");
+        jbtnCE.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jbtnCEActionPerformed(evt);
+            }
+        });
         getContentPane().add(jbtnCE, new org.netbeans.lib.awtextra.AbsoluteConstraints(110, 80, -1, 60));
 
         jbtnBS.setFont(new java.awt.Font("Segoe UI", 1, 36)); // NOI18N
         jbtnBS.setText("<-");
+        jbtnBS.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jbtnBSActionPerformed(evt);
+            }
+        });
         getContentPane().add(jbtnBS, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 80, 80, 60));
 
         jbtnplusminus.setFont(new java.awt.Font("Playbill", 1, 36)); // NOI18N
@@ -78,6 +88,11 @@ public class calculatorpic extends javax.swing.JFrame {
 
         jbtnC.setFont(new java.awt.Font("Segoe UI", 1, 36)); // NOI18N
         jbtnC.setText("C");
+        jbtnC.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jbtnCActionPerformed(evt);
+            }
+        });
         getContentPane().add(jbtnC, new org.netbeans.lib.awtextra.AbsoluteConstraints(190, 80, 70, 60));
 
         jbtndigit8.setFont(new java.awt.Font("Segoe UI", 1, 36)); // NOI18N
@@ -100,6 +115,11 @@ public class calculatorpic extends javax.swing.JFrame {
 
         jbtnplus.setFont(new java.awt.Font("Segoe UI", 1, 36)); // NOI18N
         jbtnplus.setText("+");
+        jbtnplus.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jbtnplusActionPerformed(evt);
+            }
+        });
         getContentPane().add(jbtnplus, new org.netbeans.lib.awtextra.AbsoluteConstraints(280, 150, 70, 60));
 
         jbtndigit9.setFont(new java.awt.Font("Segoe UI", 1, 36)); // NOI18N
@@ -131,6 +151,11 @@ public class calculatorpic extends javax.swing.JFrame {
 
         jbtnminus.setFont(new java.awt.Font("Segoe UI", 1, 36)); // NOI18N
         jbtnminus.setText("-");
+        jbtnminus.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jbtnminusActionPerformed(evt);
+            }
+        });
         getContentPane().add(jbtnminus, new org.netbeans.lib.awtextra.AbsoluteConstraints(280, 220, 70, 60));
 
         jbtndigit6.setFont(new java.awt.Font("Segoe UI", 1, 36)); // NOI18N
@@ -162,6 +187,11 @@ public class calculatorpic extends javax.swing.JFrame {
 
         jbtnmultiply.setFont(new java.awt.Font("Segoe UI", 1, 36)); // NOI18N
         jbtnmultiply.setText("*");
+        jbtnmultiply.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jbtnmultiplyActionPerformed(evt);
+            }
+        });
         getContentPane().add(jbtnmultiply, new org.netbeans.lib.awtextra.AbsoluteConstraints(280, 290, 70, 60));
 
         jbtndigit3.setFont(new java.awt.Font("Segoe UI", 1, 36)); // NOI18N
@@ -202,6 +232,11 @@ public class calculatorpic extends javax.swing.JFrame {
 
         jbtnequal.setFont(new java.awt.Font("Segoe UI", 1, 36)); // NOI18N
         jbtnequal.setText("=");
+        jbtnequal.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jbtnequalActionPerformed(evt);
+            }
+        });
         getContentPane().add(jbtnequal, new org.netbeans.lib.awtextra.AbsoluteConstraints(190, 360, 70, 60));
 
         pack();
@@ -225,11 +260,15 @@ public class calculatorpic extends javax.swing.JFrame {
     }//GEN-LAST:event_jbtndigit6ActionPerformed
 
     private void jbtndivideActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jbtndivideActionPerformed
-        // TODO add your handling code here:
+        NumEnter1 = Double.parseDouble(jtxtResult.getText());
+        jtxtResult.setText("");
+        op = "/";
     }//GEN-LAST:event_jbtndivideActionPerformed
 
     private void jbtnplusminusActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jbtnplusminusActionPerformed
-        // TODO add your handling code here:
+        Double nums = Double.parseDouble(String.valueOf(jtxtResult.getText()));
+        nums = nums * (-1);
+        jtxtResult.setText(String.valueOf(nums));
     }//GEN-LAST:event_jbtnplusminusActionPerformed
 
     private void jbtndigit7ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jbtndigit7ActionPerformed
@@ -261,8 +300,78 @@ public class calculatorpic extends javax.swing.JFrame {
     }//GEN-LAST:event_jbtndigit0ActionPerformed
 
     private void jbtnpointActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jbtnpointActionPerformed
-        // TODO add your handling code here:
+        if (!jtxtResult.getText().contains("."))
+        {
+            jtxtResult.setText(jtxtResult.getText()+jbtnpoint.getText());
+        }
     }//GEN-LAST:event_jbtnpointActionPerformed
+
+    private void jbtnmultiplyActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jbtnmultiplyActionPerformed
+        NumEnter1 = Double.parseDouble(jtxtResult.getText());
+        jtxtResult.setText("");
+        op = "*";
+    }//GEN-LAST:event_jbtnmultiplyActionPerformed
+
+    private void jbtnminusActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jbtnminusActionPerformed
+        NumEnter1 = Double.parseDouble(jtxtResult.getText());
+        jtxtResult.setText("");
+        op = "-";
+    }//GEN-LAST:event_jbtnminusActionPerformed
+
+    private void jbtnplusActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jbtnplusActionPerformed
+        NumEnter1 = Double.parseDouble(jtxtResult.getText());
+        jtxtResult.setText("");
+        op = "+";
+    }//GEN-LAST:event_jbtnplusActionPerformed
+
+    private void jbtnCActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jbtnCActionPerformed
+        jtxtResult.setText("");
+    }//GEN-LAST:event_jbtnCActionPerformed
+
+    private void jbtnCEActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jbtnCEActionPerformed
+        jtxtResult.setText("");
+        
+        String Fn, Sn;
+        Fn = String.valueOf(NumEnter1);
+        Sn = String.valueOf(NumEnter2);
+        Fn = ""; 
+        Sn = "";
+    }//GEN-LAST:event_jbtnCEActionPerformed
+
+    private void jbtnBSActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jbtnBSActionPerformed
+        String backSp = null;
+        if (jtxtResult.getText().length() > 0)
+        {
+            StringBuilder sb = new StringBuilder(jtxtResult.getText());
+            sb.deleteCharAt(jtxtResult.getText().length() - 1);
+            backSp = sb.toString();
+            jtxtResult.setText(backSp); 
+        }
+    }//GEN-LAST:event_jbtnBSActionPerformed
+
+    private void jbtnequalActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jbtnequalActionPerformed
+       NumEnter2 = Double.parseDouble(jtxtResult.getText());
+       if (op == "+")
+       {
+           Result = NumEnter1 + NumEnter2;
+           jtxtResult.setText(String.valueOf(Result));
+       }
+       else if (op == "-")
+       {
+          Result = NumEnter1 - NumEnter2;
+          jtxtResult.setText(String.valueOf(Result)); 
+       }
+       else if (op == "*")
+       {
+          Result = NumEnter1 * NumEnter2;
+          jtxtResult.setText(String.valueOf(Result)); 
+       }
+       else if (op == "/")
+       {
+          Result = NumEnter1 / NumEnter2;
+          jtxtResult.setText(String.valueOf(Result)); 
+       }
+    }//GEN-LAST:event_jbtnequalActionPerformed
 
     /**
      * @param args the command line arguments
